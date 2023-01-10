@@ -20,6 +20,7 @@ import lombok.extern.slf4j.Slf4j;
 @Repository
 public class ClienteDAOImpl implements ClienteDAO {
 
+	
 	 //Plantilla jdbc inyectada automáticamente por el framework Spring, gracias a la anotación @Autowired.
 	 @Autowired
 	 private JdbcTemplate jdbcTemplate;
