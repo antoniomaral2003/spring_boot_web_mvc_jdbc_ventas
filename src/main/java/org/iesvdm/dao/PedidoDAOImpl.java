@@ -82,6 +82,21 @@ public class PedidoDAOImpl implements PedidoDAO {
 	}
 	
 	@Override
+	public List<Pedido> getAllBy(int idComercial) {
+		
+		List<Pedido> listPedido = jdbcTemplate.query("SELECT * FROM pedido WHERE id_comercial = ?",
+				(rs, rowNum) -> new Pedido(rs.getInt("id"), rs.getDouble("total"), rs.getString("fecha"),
+						rs.getInt("id_cliente"), rs.getInt("id_comercial")), idComercial
+
+		);
+
+		log.info("Devueltos {} registros.", listPedido.size());
+
+		return listPedido;
+		
+	}
+	
+	@Override
 	public Optional<Pedido> find(int id) {
 		
 		Pedido ped =  jdbcTemplate.queryForObject("SELECT * FROM pedido WHERE id = ?"														

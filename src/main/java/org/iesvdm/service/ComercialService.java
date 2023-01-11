@@ -71,13 +71,45 @@ public class ComercialService {
 	}
 	
 	// PEDIDO
-	public List<Pedido> listAllPedido() {
+	public List<Pedido> listAllPedidoBy(Integer id) {
 		
-		return pedidoDAO.getAll();
+		return pedidoDAO.getAllBy(id);
 		
 	}
 	
+	public Pedido onePedido(Integer id) {
+		
+		Optional<Pedido> optPed = pedidoDAO.find(id);
+		
+		if (optPed.isPresent()) {
+			
+			return optPed.get();
+			
+		} else {
+			
+			return null;
+			
+		}
+		
+	}
 	
+	public void newPedido(Pedido pedido) {
+		
+		pedidoDAO.create(pedido);
+		
+	}
+	
+	public void replacePedido(Pedido pedido) {
+		
+		pedidoDAO.update(pedido);
+		
+	}
+	
+	public void deletePedido(int id) {
+		
+		pedidoDAO.delete(id);
+		
+	}
 	
 
 }
