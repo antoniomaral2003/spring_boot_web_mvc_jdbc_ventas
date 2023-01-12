@@ -17,7 +17,7 @@
 		style="float: none; margin: 0 auto; width: 900px;">
 		<div class="clearfix">
 			<div style="float: left; width: 50%">
-				<h1>Detalle Cliente</h1>
+				<h1 th:text="#{cliente.detalle}"></h1>
 			</div>
 			<div
 				style="float: none; width: auto; overflow: hidden; min-height: 80px; position: relative;">
@@ -25,7 +25,7 @@
 				<div style="position: absolute; left: 39%; top: 39%;">
 
 					<form action="/clientes">
-						<input type="submit" value="Volver" />
+						<input type="submit" th:value="#{volver}" />
 					</form>
 				</div>
 
@@ -38,7 +38,7 @@
 
 		<div style="margin-top: 6px;" class="clearfix">
 			<div style="float: left; width: 50%">
-				<label>ID</label>
+				<label th:text="#{cliente.id}"></label>
 			</div>
 			<div style="float: none; width: auto; overflow: hidden;">
 				<input th:value="${cliente.id}" value="Id"
@@ -47,7 +47,7 @@
 		</div>
 		<div style="margin-top: 6px;" class="clearfix">
 			<div style="float: left; width: 50%">
-				<label>Nombre</label>
+				<label th:text="#{cliente.nombre}"></label>
 			</div>
 			<div style="float: none; width: auto; overflow: hidden;">
 				<input th:value="${cliente.nombre}" value="Cliente"
@@ -56,7 +56,7 @@
 		</div>
 		<div style="margin-top: 6px;" class="clearfix">
 			<div style="float: left; width: 50%">
-				<label>Apellido 1</label>
+				<label th:text="#{cliente.apellido1}"></label>
 			</div>
 			<div style="float: none; width: auto; overflow: hidden;">
 				<input th:value="${cliente.apellido1}" value="Apellido1"
@@ -65,7 +65,7 @@
 		</div>
 		<div style="margin-top: 6px;" class="clearfix">
 			<div style="float: left; width: 50%">
-				<label>Apellido 2</label>
+				<label th:text="#{cliente.apellido2}"></label>
 			</div>
 			<div style="float: none; width: auto; overflow: hidden;">
 				<input th:value="${cliente.apellido2}" value="Apellido2"
@@ -74,7 +74,7 @@
 		</div>
 		<div style="margin-top: 6px;" class="clearfix">
 			<div style="float: left; width: 50%">
-				<label>Ciudad</label>
+				<label th:text="#{cliente.ciudad}"></label>
 			</div>
 			<div style="float: none; width: auto; overflow: hidden;">
 				<input th:value="${cliente.ciudad}" value="Ciudad"
@@ -83,7 +83,7 @@
 		</div>
 		<div style="margin-top: 6px;" class="clearfix">
 			<div style="float: left; width: 50%">
-				<label>Categoría</label>
+				<label th:text="#{cliente.categoria}"></label>
 			</div>
 			<div style="float: none; width: auto; overflow: hidden;">
 				<input th:value="${cliente.categoria}" value="Categoria"

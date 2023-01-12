@@ -19,13 +19,13 @@
 			th:object="${comercial}" method="post">
 			<div class="clearfix">
 				<div style="float: left; width: 50%">
-					<h1>Editar Comercial</h1>
+					<h1 th:text="#{comercial.editar}"></h1>
 				</div>
 				<div
 					style="float: none; width: auto; overflow: hidden; min-height: 80px; position: relative;">
 
 					<div style="position: absolute; left: 39%; top: 39%;">
-						<input type="submit" value="Guardar" />
+						<input type="submit" th:value="#{guardar}" />
 					</div>
 
 				</div>
@@ -38,7 +38,7 @@
 
 			<div style="margin-top: 6px;" class="clearfix">
 				<div style="float: left; width: 50%">
-					<label>ID</label>
+					<label th:text="#{comercial.id}"></label>
 				</div>
 				<div style="float: none; width: auto; overflow: hidden;">
 					<input th:field="*{id}" readonly="readonly" />
@@ -46,7 +46,7 @@
 			</div>
 			<div style="margin-top: 6px;" class="clearfix">
 				<div style="float: left; width: 50%">
-					<label>Nombre</label>
+					<label th:text="#{comercial.nombre}"></label>
 				</div>
 				<div style="float: none; width: auto; overflow: hidden;">
 					<input th:field="*{nombre}" />
@@ -54,7 +54,7 @@
 			</div>
 			<div style="margin-top: 6px;" class="clearfix">
 				<div style="float: left; width: 50%">
-					<label>Apellido 1</label>
+					<label th:text="#{comercial.apellido1}"></label>
 				</div>
 				<div style="float: none; width: auto; overflow: hidden;">
 					<input th:field="*{apellido1}" />
@@ -62,7 +62,7 @@
 			</div>
 			<div style="margin-top: 6px;" class="clearfix">
 				<div style="float: left; width: 50%">
-					<label>Apellido 2</label>
+					<label th:text="#{comercial.apellido2}"></label>
 				</div>
 				<div style="float: none; width: auto; overflow: hidden;">
 					<input th:field="*{apellido2}" />
@@ -70,7 +70,7 @@
 			</div>
 			<div style="margin-top: 6px;" class="clearfix">
 				<div style="float: left; width: 50%">
-					<label>Comisión</label>
+					<label th:text="#{comercial.comision}"></label>
 				</div>
 				<div style="float: none; width: auto; overflow: hidden;">
 					<input th:field="*{comision}" />
