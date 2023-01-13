@@ -4,8 +4,10 @@ import java.sql.PreparedStatement;
 import java.util.List;
 import java.util.Optional;
 
+import org.iesvdm.dto.ComercialDTO;
 import org.iesvdm.modelo.Cliente;
 import org.iesvdm.modelo.Comercial;
+import org.iesvdm.modelo.Pedido;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.support.GeneratedKeyHolder;
@@ -127,6 +129,34 @@ public class ComercialDAOImpl implements ComercialDAO {
 		log.info("Delete de Comercial con {} registros eliminados.", rows);
 		
 
+	}
+	
+	@Override
+	public List<ComercialDTO> getTotalPedidos(int id) {
+		
+		List<ComercialDTO> listTotal = jdbcTemplate.query("SELECT total FROM pedido WHERE id_comercial = ?",
+				(rs, rowNum) -> new ComercialDTO(rs.getInt("id"), rs.getString("nombre"), rs.getString("apellido1"),
+						rs.getString("apellido2"), rs.getFloat("comision"), rs.getDouble("totalPedidos"), rs.getDouble("mediaPedidos")), id
+
+		);
+
+		log.info("Devueltos {} registros.", listTotal.size());
+
+		return listTotal;
+		
+	}
+	
+	@Override
+	public List<ComercialDTO> getMediaPedidos(int id) {
+		
+		List<ComercialDTO> media = jdbcTemplate.query("SELECT AVG(total) FROM pedido WHERE id_comercial = ?", 
+				(rs, rowNum) -> new ComercialDTO(rs.getInt("id"), rs.getString("nombre"), rs.getString("apellido1"),
+						rs.getString("apellido2"), rs.getFloat("comision"), rs.getDouble("totalPedidos"), rs.getDouble("mediaPedidos")), id);
+		
+		log.info("Devueltos {} registros.", media.size());
+		
+		return media;
+		
 	}
 	
 

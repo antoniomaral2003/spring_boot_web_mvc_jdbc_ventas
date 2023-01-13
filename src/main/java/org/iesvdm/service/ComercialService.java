@@ -5,6 +5,7 @@ package org.iesvdm.service;
 
 import org.iesvdm.dao.ComercialDAO;
 import org.iesvdm.dao.PedidoDAO;
+import org.iesvdm.dto.ComercialDTO;
 import org.iesvdm.modelo.Comercial;
 import org.iesvdm.modelo.Pedido;
 import org.springframework.stereotype.Service;
@@ -67,6 +68,18 @@ public class ComercialService {
 	public void deleteComercial(int id) {
 		
 		comercialDAO.delete(id);
+		
+	}
+	
+	public List<ComercialDTO> listTotalPedidos(Integer id) {
+		
+		return comercialDAO.getTotalPedidos(id);
+		
+	}
+	
+	public List<ComercialDTO> listMediaPedidos(Integer id) {
+		
+		return comercialDAO.getMediaPedidos(id);
 		
 	}
 	
