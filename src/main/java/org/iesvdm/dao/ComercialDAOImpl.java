@@ -132,28 +132,25 @@ public class ComercialDAOImpl implements ComercialDAO {
 	}
 	
 	@Override
-	public List<ComercialDTO> getTotalPedidos(int id) {
+	public Double getTotalPedidos(int id) {
 		
-		List<ComercialDTO> listTotal = jdbcTemplate.query("SELECT total FROM pedido WHERE id_comercial = ?",
-				(rs, rowNum) -> new ComercialDTO(rs.getInt("id"), rs.getString("nombre"), rs.getString("apellido1"),
-						rs.getString("apellido2"), rs.getFloat("comision"), rs.getDouble("totalPedidos"), rs.getDouble("mediaPedidos")), id
+		Double total = jdbcTemplate.queryForObject("SELECT SUM(total) FROM pedido WHERE id_comercial = ?",
+				Double.class, id);
 
-		);
 
-		log.info("Devueltos {} registros.", listTotal.size());
+		log.info("Devueltos {} registros.", total);
 
-		return listTotal;
+		return total;
 		
 	}
 	
 	@Override
-	public List<ComercialDTO> getMediaPedidos(int id) {
+	public Double getMediaPedidos(int id) {
 		
-		List<ComercialDTO> media = jdbcTemplate.query("SELECT AVG(total) FROM pedido WHERE id_comercial = ?", 
-				(rs, rowNum) -> new ComercialDTO(rs.getInt("id"), rs.getString("nombre"), rs.getString("apellido1"),
-						rs.getString("apellido2"), rs.getFloat("comision"), rs.getDouble("totalPedidos"), rs.getDouble("mediaPedidos")), id);
+		Double media = jdbcTemplate.queryForObject("SELECT AVG(total) FROM pedido WHERE id_comercial = ?", 
+				  Double.class, id);
 		
-		log.info("Devueltos {} registros.", media.size());
+		log.info("Devueltos {} registros.", media);
 		
 		return media;
 		

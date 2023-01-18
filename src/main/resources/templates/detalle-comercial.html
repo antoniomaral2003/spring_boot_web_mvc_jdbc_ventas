@@ -84,15 +84,44 @@
 		
 		<div style="margin-top: 6px;" class="clearfix">
 			<div style="float: left; width: 50%">
-				<label th:text="#{comercial.pedidos}"></label>
+				<label th:text="#{comercial.total}"></label>
 			</div>
 			<div style="float: none; width: auto; overflow: hidden;">
-				<ul th:each="pedido: ${listaPedidos}">
-				
-					<li th:text="${pedido.id}"/>
-				
-				</ul>
+				<input th:value="${totalPedidos}" value="Total Pedidos"
+					readonly="readonly" />
 			</div>
+		</div>
+		
+		<div style="margin-top: 6px;" class="clearfix">
+			<div style="float: left; width: 50%">
+				<label th:text="#{comercial.media}"></label>
+			</div>
+			<div style="float: none; width: auto; overflow: hidden;">
+				<input th:value="${mediaPedidos}" value="Media Pedidos"
+					readonly="readonly" />
+			</div>
+		</div>
+		<br>
+		
+		<h1 th:text="#{comercial.pedidos}"></h1>
+		
+		<div th:each="pedido: ${listaPedidos}" style="margin-top: 6px;" class="clearfix">
+		
+			<div style="float: left;width: 14%" th:text="${pedido.id}"></div>
+			<div style="float: left;width: 14%" th:text="${pedido.total}"></div>
+			<div style="float: left;width: 14%" th:text="${pedido.fecha}"></div>
+			<div style="float: left;width: 14%" th:text="${pedido.id_cliente}"></div>
+			<div style="float: left;width: 14%" th:text="${pedido.id_comercial}"></div>
+		
+		</div>
+		<br>
+		
+		<h1></h1>
+		
+		<div style="margin-top: 6px;" class="clearfix">
+		
+			
+		
 		</div>
 
 	</div>

@@ -17,9 +17,9 @@ public interface ComercialDAO {
 	
 	public void delete(long id);
 	
-	public List<ComercialDTO> getTotalPedidos(int id);
+	public Double getTotalPedidos(int id);
 	
-	public List<ComercialDTO> getMediaPedidos(int id);
+	public Double getMediaPedidos(int id);
 
 
 }

@@ -71,13 +71,13 @@ public class ComercialService {
 		
 	}
 	
-	public List<ComercialDTO> listTotalPedidos(Integer id) {
+	public Double listTotalPedidos(Integer id) {
 		
 		return comercialDAO.getTotalPedidos(id);
 		
 	}
 	
-	public List<ComercialDTO> listMediaPedidos(Integer id) {
+	public Double listMediaPedidos(Integer id) {
 		
 		return comercialDAO.getMediaPedidos(id);
 		
