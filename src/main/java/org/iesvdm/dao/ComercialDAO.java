@@ -20,6 +20,10 @@ public interface ComercialDAO {
 	public Double getTotalPedidos(int id);
 	
 	public Double getMediaPedidos(int id);
+	
+	public Double getPedidoMax(int id);
+	
+	public Double getPedidoMin(int id);
 
 
 }

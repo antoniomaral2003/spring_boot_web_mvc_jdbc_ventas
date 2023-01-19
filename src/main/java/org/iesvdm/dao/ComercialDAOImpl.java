@@ -156,5 +156,29 @@ public class ComercialDAOImpl implements ComercialDAO {
 		
 	}
 	
+	@Override
+	public Double getPedidoMax(int id) {
+		
+		Double max = jdbcTemplate.queryForObject("SELECT MAX(total) FROM pedido WHERE id_comercial = ?", 
+				  Double.class, id);
+		
+		log.info("Devueltos {} registros.", max);
+		
+		return max;
+		
+	}
+	
+	@Override
+	public Double getPedidoMin(int id) {
+		
+		Double min = jdbcTemplate.queryForObject("SELECT MIN(total) FROM pedido WHERE id_comercial = ?", 
+				  Double.class, id);
+		
+		log.info("Devueltos {} registros.", min);
+		
+		return min;
+		
+	}
+	
 
 }

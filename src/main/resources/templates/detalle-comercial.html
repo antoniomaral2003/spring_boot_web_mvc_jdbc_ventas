@@ -107,16 +107,16 @@
 		
 		<div th:each="pedido: ${listaPedidos}" style="margin-top: 6px;" class="clearfix">
 		
-			<div style="float: left;width: 14%" th:text="${pedido.id}"></div>
-			<div style="float: left;width: 14%" th:text="${pedido.total}"></div>
-			<div style="float: left;width: 14%" th:text="${pedido.fecha}"></div>
-			<div style="float: left;width: 14%" th:text="${pedido.id_cliente}"></div>
-			<div style="float: left;width: 14%" th:text="${pedido.id_comercial}"></div>
+			<div style="float: left;width: 14%; background-color: white; color: black" th:text="${pedido.id}" th:style="${pedido.total == pedidoMax || pedido.total == pedidoMin}?'background-color: lawngreen':'background-color: yellow'" ></div>
+			<div style="float: left;width: 14%; background-color: white; color: black" th:text="${pedido.total}" th:style="${pedido.total == pedidoMax || pedido.total == pedidoMin}?'background-color: lawngreen':'background-color: yellow'" ></div>
+			<div style="float: left;width: 14%; background-color: white; color: black" th:text="${pedido.fecha}" th:style="${pedido.total == pedidoMax || pedido.total == pedidoMin}?'background-color: lawngreen':'background-color: yellow'" ></div>
+			<div style="float: left;width: 14%; background-color: white; color: black" th:text="${pedido.id_cliente}" th:style="${pedido.total == pedidoMax || pedido.total == pedidoMin}?'background-color: lawngreen':'background-color: yellow'" ></div>
+			<div style="float: left;width: 14%; background-color: white; color: black" th:text="${pedido.id_comercial}" th:style="${pedido.total == pedidoMax || pedido.total == pedidoMin}?'background-color: lawngreen':'background-color: yellow'" ></div>
 		
 		</div>
 		<br>
 		
-		<h1></h1>
+		<h1 th:text="#{cliente.pedidos}"></h1>
 		
 		<div style="margin-top: 6px;" class="clearfix">
 		

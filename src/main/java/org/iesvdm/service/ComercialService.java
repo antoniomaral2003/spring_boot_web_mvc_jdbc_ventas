@@ -83,6 +83,18 @@ public class ComercialService {
 		
 	}
 	
+	public Double pedidoMax(Integer id) {
+		
+		return comercialDAO.getPedidoMax(id);
+		
+	}
+	
+	public Double pedidoMin(Integer id) {
+		
+		return comercialDAO.getPedidoMin(id);
+		
+	}
+	
 	// PEDIDO
 	public List<Pedido> listAllPedidoBy(Integer id) {
 		
