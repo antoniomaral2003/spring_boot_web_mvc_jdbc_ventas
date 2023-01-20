@@ -118,9 +118,11 @@
 		
 		<h1 th:text="#{cliente.pedidos}"></h1>
 		
-		<div style="margin-top: 6px;" class="clearfix">
+		<div th:each="pedidoCliente: ${listaPedidosClientes}" style="margin-top: 6px;" class="clearfix">
 		
-			
+			<div style="float: left;width: 14%; background-color: white; color: black" th:text="${pedidoCliente.id}"></div>
+			<div style="float: left;width: 14%; background-color: white; color: black" th:text="${pedidoCliente.nombre}"></div>
+			<div style="float: left;width: 14%; background-color: white; color: black" th:text="${pedidoCliente.totalPedidos}"></div>
 		
 		</div>
 

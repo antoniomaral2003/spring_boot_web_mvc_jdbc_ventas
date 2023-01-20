@@ -5,6 +5,7 @@ package org.iesvdm.service;
 
 import org.iesvdm.dao.ComercialDAO;
 import org.iesvdm.dao.PedidoDAO;
+import org.iesvdm.dto.ClienteDTO;
 import org.iesvdm.dto.ComercialDTO;
 import org.iesvdm.modelo.Comercial;
 import org.iesvdm.modelo.Pedido;
@@ -92,6 +93,12 @@ public class ComercialService {
 	public Double pedidoMin(Integer id) {
 		
 		return comercialDAO.getPedidoMin(id);
+		
+	}
+	
+	public List<ClienteDTO> listTotalPedidosClientes(Integer id) {
+		
+		return pedidoDAO.getPedidosClientes(id);
 		
 	}
 	

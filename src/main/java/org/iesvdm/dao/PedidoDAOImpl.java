@@ -7,6 +7,7 @@ import java.sql.PreparedStatement;
 import java.util.List;
 import java.util.Optional;
 
+import org.iesvdm.dto.ClienteDTO;
 import org.iesvdm.modelo.Cliente;
 import org.iesvdm.modelo.Comercial;
 import org.iesvdm.modelo.Pedido;
@@ -149,11 +150,11 @@ public class PedidoDAOImpl implements PedidoDAO {
 	}
 	
 	@Override
-	public List<Pedido> getPedidosClientes(int idCliente) {
+	public List<ClienteDTO> getPedidosClientes(int idCliente) {
 		
-		List<Pedido> listPedido = jdbcTemplate.query("SELECT cliente.id, cliente.nombre, pedido.total FROM pedido INNER JOIN cliente WHERE cliente.id = ? ORDER BY pedido.total DESC",
-				(rs, rowNum) -> new Pedido(rs.getInt("id"), rs.getDouble("total"), rs.getString("fecha"),
-						rs.getInt("id_cliente"), rs.getInt("id_comercial")), idCliente
+		List<ClienteDTO> listPedido = jdbcTemplate.query("SELECT cliente.*, pedido.total FROM pedido INNER JOIN cliente WHERE cliente.id = ? ORDER BY pedido.total DESC",
+				(rs, rowNum) -> new ClienteDTO(rs.getInt("id"), rs.getString("nombre"), rs.getString("apellido1"),
+						rs.getString("apellido2"), rs.getString("ciudad"), rs.getInt("categoria"), rs.getDouble("totalPedidos")), idCliente
 
 		);
 

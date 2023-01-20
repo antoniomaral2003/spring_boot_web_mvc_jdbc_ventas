@@ -3,6 +3,7 @@
  */
 package org.iesvdm.controlador;
 
+import org.iesvdm.dto.ClienteDTO;
 import org.iesvdm.dto.ComercialDTO;
 import org.iesvdm.modelo.Cliente;
 import org.iesvdm.modelo.Comercial;
@@ -53,12 +54,14 @@ public class ComercialController {
 		Double mediaPedidos = comercialService.listMediaPedidos(id);
 		Double pedidoMax = comercialService.pedidoMax(id);
 		Double pedidoMin = comercialService.pedidoMin(id);
+		List<ClienteDTO> totalPedidosClientes = comercialService.listTotalPedidosClientes(id);
 		model.addAttribute("comercial", comercial);
 		model.addAttribute("listaPedidos", listaPedidos);
 		model.addAttribute("totalPedidos", totalPedidos);
 		model.addAttribute("mediaPedidos", mediaPedidos);
 		model.addAttribute("pedidoMax", pedidoMax);
 		model.addAttribute("pedidoMin", pedidoMin);
+		model.addAttribute("totalPedidosClientes", totalPedidosClientes);
 		
 		return "detalle-comercial";
 		
