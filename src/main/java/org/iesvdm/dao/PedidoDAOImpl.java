@@ -154,7 +154,7 @@ public class PedidoDAOImpl implements PedidoDAO {
 		
 		List<ClienteDTO> listPedido = jdbcTemplate.query("SELECT cliente.*, pedido.total FROM pedido INNER JOIN cliente WHERE cliente.id = ? ORDER BY pedido.total DESC",
 				(rs, rowNum) -> new ClienteDTO(rs.getInt("id"), rs.getString("nombre"), rs.getString("apellido1"),
-						rs.getString("apellido2"), rs.getString("ciudad"), rs.getInt("categoria"), rs.getDouble("totalPedidos")), idCliente
+						rs.getString("apellido2"), rs.getString("ciudad"), rs.getInt("categoría"), rs.getDouble("total")), idCliente
 
 		);
 

@@ -5,6 +5,7 @@ package org.iesvdm.dto;
 
 import org.iesvdm.modelo.Cliente;
 
+import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
@@ -15,16 +16,17 @@ import lombok.NoArgsConstructor;
 
 @Data
 @NoArgsConstructor
-public class ClienteDTO extends Cliente {
+@AllArgsConstructor
+public class ClienteDTO {
+	
+	private long id;
+	private String nombre;
+	private String apellido1;
+	private String apellido2;
+	private String ciudad;
+	private int categoria;
 	
 	private double totalPedidos;
 	
-	public ClienteDTO(long id, String nombre, String apellido1, String apellido2, String ciudad, int categoria, double totalPedidos) {
-		
-		super(id, nombre, apellido1, apellido2, ciudad, categoria);
-		
-		this.totalPedidos = totalPedidos;
-		
-	}
 
 }
