@@ -3,6 +3,8 @@
  */
 package org.iesvdm.dto;
 
+import java.math.BigDecimal;
+
 import org.iesvdm.modelo.Comercial;
 
 import lombok.Data;
@@ -21,7 +23,7 @@ public class ComercialDTO extends Comercial {
 	private double mediaPedidos;
 	
 	// Constrcutor de la clase
-	public ComercialDTO(int id, String nombre, String apellido1, String apellido2, float comision, double totalPedidos, double mediaPedidos) {
+	public ComercialDTO(int id, String nombre, String apellido1, String apellido2, BigDecimal comision, double totalPedidos, double mediaPedidos) {
 		
 		super(id, nombre, apellido1, apellido2, comision);
 		
