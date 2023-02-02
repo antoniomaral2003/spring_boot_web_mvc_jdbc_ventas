@@ -17,12 +17,12 @@ public class Comercial {
 
 	private int id;
 	
-	@Size(min = 4, message = "Nombre al menos de 4 caracteres")
-	@Size(max = 30, message = "Nombre de 30 caracteres como máximo")
+	@Size(min = 4, message = "{error.nombre.size.min}")
+	@Size(max = 30, message = "{error.nombre.size.max}")
 	private String nombre;
 	
-	@Size(min = 4, message = "Primer apellido de al menos 4 caracteres")
-	@Size(max = 30, message = "Primer apellido de 30 caracteres como máximo")
+	@Size(min = 4, message = "{error.apellido1.size.min}")
+	@Size(max = 30, message = "{error.apellido1.size.max}")
 	private String apellido1;
 	
 	private String apellido2;

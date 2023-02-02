@@ -2,68 +2,57 @@
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
 <meta charset="UTF-8">
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
 <title>Comerciales</title>
-<style>
-.clearfix::after {
-	content: "";
-	display: block;
-	clear: both;
-}
-
-</style>
 </head>
 <body>
 
-	<div id="contenedora" style="float:none; margin: 0 auto;width: 95%;" >
-		<div class="clearfix">
-			<div style="float: left; width: 50%">
+	<div class="container-xxl" >
+		<div class="row">
+			<div class="col-6">
 				<h1 th:text="#{tituloComerciales}"></h1>
 			</div>
-			<div style="float: none;width: auto;overflow: hidden;min-height: 80px;position: relative;">
+			<div class="col-6 d-flex align-items-center justify-content-center">
 				
-				<div style="position: absolute; left: 39%; top : 39%;">
+				<div>
 					
 						<form action="/comerciales/crear">
-							<input type="submit" th:value="#{crear}">
+							<input class="btn btn-success" type="submit" th:value="#{crear}">
 						</form>
-					</div>
+				</div>
 				
 			</div>
 		</div>
-		<div class="clearfix">
-			<hr/>
-		</div>
-		<div class="clearfix">
-			<div style="float: left;width: 14%" th:text="#{comercial.id}"></div>
-			<div style="float: left;width: 14%" th:text="#{comercial.nombre}"></div>
-			<div style="float: left;width: 14%" th:text="#{comercial.apellido1}"></div>
-			<div style="float: left;width: 14%" th:text="#{comercial.apellido2}"></div>
-			<div style="float: left;width: 14%" th:text="#{comercial.comision}"></div>
-			<div style="float: none;width: auto;overflow: hidden;" th:text="#{accion}"></div>
-		</div>
-		<div class="clearfix">
-			<hr/>
+		<div class="row d-flex justify-content-around text-bg-success py-4 rounded-3">
+			<div class="col-2" th:text="#{comercial.id}"></div>
+			<div class="col-2" th:text="#{comercial.nombre}"></div>
+			<div class="col-2" th:text="#{comercial.apellido1}"></div>
+			<div class="col-2" th:text="#{comercial.apellido2}"></div>
+			<div class="col-2" th:text="#{comercial.comision}"></div>
+			<div class="col-2" th:text="#{accion}"></div>
 		</div>
 
-		<div  th:each="comercial : ${listaComerciales}" style="margin-top: 6px;" class="clearfix">
-			<div style="float: left;width: 14%" th:text="${comercial.id}">0</div>
-			<div style="float: left;width: 14%" th:text="${comercial.nombre}">nombre</div>
-			<div style="float: left;width: 14%" th:text="${comercial.apellido1}">apellido1</div>
-			<div style="float: left;width: 14%" th:text="${comercial.apellido2 ?: '&nbsp;'}">apellido2</div>
-			<div style="float: left;width: 14%" th:text="${comercial.comision}">comisión</div>
-			<div style="float: none;width: auto;overflow: hidden;">
-				<form th:action="@{/comerciales/__${comercial.id}__}" style="display: inline;">
-    				<input type="submit" th:value="#{detalle}" />
+		<div class="row d-flex justify-content-around py-2" th:each="comercial : ${listaComerciales}">
+			<div class="col-2" th:text="${comercial.id}">0</div>
+			<div class="col-2" th:text="${comercial.nombre}">nombre</div>
+			<div class="col-2" th:text="${comercial.apellido1}">apellido1</div>
+			<div class="col-2" th:text="${comercial.apellido2 ?: '&nbsp;'}">apellido2</div>
+			<div class="col-2" th:text="${comercial.comision}">comisión</div>
+			<div class="col-2 d-flex justify-content-around align-items-center">
+				<form th:action="@{/comerciales/__${comercial.id}__}">
+    				<input type="submit" class="text-bg-primary px-1" th:value="#{detalle}" />
 				</form>
-				<form th:action="@{/comerciales/editar/}+${comercial.id} " style="display: inline;">
-    				<input type="submit" th:value="#{editar}" />
+				<form th:action="@{/comerciales/editar/}+${comercial.id}">
+    				<input type="submit" class="text-bg-secondary px-1" th:value="#{editar}" />
 				</form>
-				<form th:action="@{/comerciales/borrar/__${comercial.id}__}" method="post" style="display: inline;">					
-    				<input type="submit" th:value="#{borrar}" />
+				<form th:action="@{/comerciales/borrar/__${comercial.id}__}" method="post">					
+    				<input type="submit" class="text-bg-danger px-1" th:value="#{borrar}" />
 				</form>
 			</div>
 		</div>
 	</div>
+	
+	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js" integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN" crossorigin="anonymous"></script>
 
 </body>
 </html>

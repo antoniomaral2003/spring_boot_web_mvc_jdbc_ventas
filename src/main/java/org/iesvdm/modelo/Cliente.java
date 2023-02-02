@@ -1,5 +1,7 @@
 package org.iesvdm.modelo;
 
+import jakarta.validation.constraints.Max;
+import jakarta.validation.constraints.Min;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.Size;
 import lombok.AllArgsConstructor;
@@ -16,22 +18,22 @@ public class Cliente {
 	
 	private long id;
 	
-	@Size(min = 4, message = "Nombre al menos de 4 caracteres")
-	@Size(max = 30, message = "Nombre de 30 caracteres como máximo")
+	@Size(min = 4, message = "{error.nombre.size.min}")
+	@Size(max = 30, message = "{error.nombre.size.max}")
 	private String nombre;
 	
-	@Size(min = 4, message = "Primer apellido de al menos 4 caracteres")
-	@Size(max = 30, message = "Primer apellido de 30 caracteres como máximo")
+	@Size(min = 4, message = "{error.apellido1.size.min}")
+	@Size(max = 30, message = "{error.apellido1.size.max}")
 	private String apellido1;
 	
 	
 	private String apellido2;
 	
-	@Size(max = 50, message = "Ciudad de 50 caracteres como máximo")
+	@Size(max = 50, message = "{error.ciudad.max}")
 	private String ciudad;
 	
-	@Size(min = 100, message = "Categoria minima: 100")
-	@Size(max = 1000, message = "Categoria maxima: 1000")
+	@Min(value = 100, message = "{error.categoria.min}")
+	@Max(value = 1000, message = "{error.categoria.max}")
 	private int categoria;
 	
 }
